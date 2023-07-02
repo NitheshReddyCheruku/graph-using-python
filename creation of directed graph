@@ -1,0 +1,35 @@
+'''
+
+Welcome to GDB Online.
+GDB online is an online compiler and debugger tool for C, C++, Python, Java, PHP, Ruby, Perl,
+C#, OCaml, VB, Swift, Pascal, Fortran, Haskell, Objective-C, Assembly, HTML, CSS, JS, SQLite, Prolog.
+Code, Compile, Run and Debug online from anywhere in world.
+
+'''
+print ('Hello World')
+all_edge=[("A","B"),("A","C"),("B","D"),("C","D"),("C","E"),("D","E")]
+class graph:
+    def __init__(self,nodes,is_direc=False):
+        self.nodes=nodes
+        self.adj={}
+        self.is_direc=is_direc
+        
+        for node in self.nodes:
+            self.adj[node]=[]
+    def printadja(self):
+        for node in self.nodes:
+            print(node,"->",self.adj[node])
+    def degreeee(self,node):
+        deg=len(self.adj[node])
+        print(deg)
+    def edge(self,u,v):
+        self.adj[u].append(v)
+        if not self.is_direc:
+            self.adj[v].append(u)
+nodes=["A","B","C","D","E"]
+g1=graph(nodes,is_direc=True)
+g1.printadja()
+for u,v in all_edge:
+    g1.edge(u,v)
+g1.printadja()
+g1.degreeee(input())
